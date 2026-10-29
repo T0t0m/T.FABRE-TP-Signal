@@ -1,0 +1,61 @@
+@use "sass:color";
+
+$primary-color: #3498db;
+$danger-color: #e74c3c;
+$bg-color: #f9f9f9;
+$text-dark: #2c3e50;
+$disabled-color: #bdc3c7;
+
+.tracker-widget {
+  font-family: Arial, sans-serif;
+  border: 2px solid color.adjust($bg-color, $lightness: -10%);
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 350px;
+  text-align: center;
+  background-color: $bg-color;
+
+  .stats p {
+    margin: 5px 0;
+  }
+
+  .message {
+    font-weight: bold;
+    color: $text-dark;
+    min-height: 24px;
+    margin: 15px 0;
+  }
+
+  .actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+
+    button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: $primary-color;
+      color: white;
+      transition: background-color 0.2s ease-in-out;
+
+      &:hover:not(:disabled) {
+        background-color: color.adjust($primary-color, $lightness: -15%);
+      }
+
+      &:disabled {
+        background-color: $disabled-color;
+        cursor: not-allowed;
+      }
+
+      &.btn-reset {
+        background-color: $danger-color;
+
+        &:hover {
+          background-color: color.adjust($danger-color, $lightness: -15%);
+        }
+      }
+    }
+  }
+}

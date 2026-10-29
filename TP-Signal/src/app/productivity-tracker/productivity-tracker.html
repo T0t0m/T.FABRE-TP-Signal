@@ -1,0 +1,19 @@
+<div class="tracker-widget">
+  <h2>Tracker de Productivité</h2>
+  
+  <div class="stats">
+    <p>Tâches complétées : {{ completedTasks() }} / 5</p>
+    <p>Progression : <strong>{{ progressPercentage() }}%</strong></p>
+  </div>
+
+  <p class="message">{{ message() }}</p>
+
+  <div class="actions">
+    <button (click)="incrementTask()" [disabled]="completedTasks() >= 5">
+      +1 Tâche complétée
+    </button>
+    <button (click)="resetTasks()" class="btn-reset">
+      Réinitialiser
+    </button>
+  </div>
+</div>
